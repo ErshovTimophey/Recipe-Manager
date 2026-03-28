@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Recipe Manager — демо</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script>window.API_BASE = window.API_BASE ?? "";</script>
+</head>
+<body>
+  <h1>Recipe Manager</h1>
+  <p class="muted">Войдите — увидите свои рецепты.</p>
+
+  <section class="card" id="auth-section">
+    <h2>Вход</h2>
+    <div class="row">
+      <label>Email <input type="email" id="email" autocomplete="username" /></label>
+      <label>Пароль <input type="password" id="password" autocomplete="current-password" /></label>
+    </div>
+    <div class="actions">
+      <button type="button" id="btn-register">Регистрация</button>
+      <button type="button" id="btn-login">Войти</button>
+      <button type="button" id="btn-logout" class="secondary">Выйти</button>
+    </div>
+    <p id="auth-status" class="status"></p>
+  </section>
+
+  <section class="card" id="recipe-section">
+    <div class="layout-head">
+      <h2>Мои рецепты</h2>
+      <button type="button" id="btn-refresh" class="secondary small">Обновить список</button>
+    </div>
+    <div id="recipe-list" class="recipe-list" aria-live="polite"></div>
+    <p id="list-empty" class="muted hidden">Пока нет рецептов — нажмите «Новый рецепт».</p>
+
+    <hr class="sep" />
+
+    <div class="layout-head">
+      <h2>Форма</h2>
+      <button type="button" id="btn-new" class="secondary">Новый рецепт</button>
+    </div>
+    <p id="edit-meta" class="edit-meta">Выберите рецепт в списке или создайте новый.</p>
+
+    <div class="row">
+      <label>Название <input type="text" id="r-title" /></label>
+    </div>
+    <div class="row">
+      <label>Описание <textarea id="r-desc" rows="2"></textarea></label>
+    </div>
+    <div class="row">
+      <label>Инструкции <textarea id="r-inst" rows="3"></textarea></label>
+    </div>
+    <h3>Ингредиенты</h3>
+    <div id="ingredients"></div>
+    <button type="button" id="btn-add-ing" class="secondary small">+ строка</button>
+    <div class="actions">
+      <button type="button" id="btn-save">Сохранить</button>
+      <button type="button" id="btn-delete" class="danger" disabled>Удалить</button>
+    </div>
+    <p id="form-msg" class="status"></p>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>

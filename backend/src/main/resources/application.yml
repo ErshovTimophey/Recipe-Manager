@@ -1,0 +1,40 @@
+spring:
+  application:
+    name: recipe-manager
+  datasource:
+    url: jdbc:postgresql://localhost:5432/recipemanager
+    username: recipemanager
+    password: recipemanager
+    driver-class-name: org.postgresql.Driver
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+  jooq:
+    sql-dialect: postgres
+
+jwt:
+  secret: recipe-manager-jwt-secret-at-least-256-bits-long-for-hmac-sha256-algorithm
+  expiration-ms: 86400000
+
+server:
+  port: 8080
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health, info, prometheus, metrics
+  metrics:
+    tags:
+      application: recipe-manager
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+
+logging:
+  level:
+    com.recipemanager: DEBUG
+    org.jooq: INFO
