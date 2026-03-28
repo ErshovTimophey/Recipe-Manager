@@ -1,14 +1,21 @@
 # Recipe-Manager
 
 http://localhost:8080/swagger-ui/index.html - Swagger
+
 http://localhost:3000/ - Frontend
+
 http://localhost:8080/actuator/prometheus - Метрики
+
 Запуск тестов:
+
 .\gradlew.bat test
+
 Отчёт в: 
+
 backend\build\reports\tests\test\index.html
 
 Запуск приложения в корне проекта:
+
 docker-compose up --build
 
 ## Стек технологий
